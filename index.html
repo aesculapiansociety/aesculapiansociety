@@ -1,198 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Aesculapian Society - Medical School Journey</title>
-      <style>
-                * {
-                              margin: 0;
-                              padding: 0;
-                              box-sizing: border-box;
-                }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesculapian Society - Medical School Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-                body {
-                              font-family: 'Comic Sans MS', 'Arial', sans-serif;
-                              background: repeating-linear-gradient(
-                                                45deg,
-                                                #ffffff,
-                                                #ffffff 20px,
-                                                #000000 20px,
-                                                #000000 40px
-                                            );
-                              color: #333;
-                              line-height: 1.6;
-                              min-height: 100vh;
-                }
+        body {
+            font-family: 'Comic Sans MS', 'Arial', sans-serif;
+            background: repeating-linear-gradient(
+                45deg,
+                #ffffff,
+                #ffffff 20px,
+                #000000 20px,
+                #000000 40px
+            );
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
 
-                header {
-                              background: #000;
-                              padding: 30px 20px;
-                              text-align: center;
-                              box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-                              border-bottom: 4px solid #fff;
-                }
+        header {
+            background: #000;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            border-bottom: 4px solid #fff;
+        }
 
-                h1 {
-                              color: white;
-                              font-size: 3em;
-                              text-shadow: 2px 2px 0px #555;
-                              margin-bottom: 10px;
-                }
+        h1 {
+            color: white;
+            font-size: 3em;
+            text-shadow: 2px 2px 0px #555;
+            margin-bottom: 10px;
+        }
 
-                .subtitle {
-                              color: #ccc;
-                              font-size: 1.3em;
-                }
+        .subtitle {
+            color: #ccc;
+            font-size: 1.3em;
+        }
 
-                .container {
-                              max-width: 900px;
-                              margin: 40px auto;
-                              padding: 20px;
-                }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
 
-                .intro-box {
-                              background: rgba(255, 255, 255, 0.95);
-                              border-radius: 20px;
-                              padding: 30px;
-                              margin-bottom: 30px;
-                              box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-                              border: 4px solid #000;
-                }
+        .intro-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border: 4px solid #000;
+        }
 
-                .intro-box h2 {
-                              color: #000;
-                              font-size: 2em;
-                              margin-bottom: 15px;
-                }
+        .intro-box h2 {
+            color: #000;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
 
-                .intro-box p {
-                              font-size: 1.1em;
-                              color: #333;
-                }
+        .intro-box p {
+            font-size: 1.1em;
+            color: #333;
+        }
 
-                .blog-post {
-                              background: rgba(255, 255, 255, 0.95);
-                              border-radius: 20px;
-                              padding: 30px;
-                              margin-bottom: 30px;
-                              box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-                              border-left: 8px solid #000;
-                              transition: transform 0.3s ease;
-                }
+        .blog-post {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            border-left: 8px solid #000;
+            transition: transform 0.3s ease;
+        }
 
-                .blog-post:hover {
-                              transform: translateY(-5px);
-                              box-shadow: 0 12px 35px rgba(0,0,0,0.4);
-                }
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+        }
 
-                .blog-post h3 {
-                              color: #000;
-                              font-size: 1.8em;
-                              margin-bottom: 10px;
-                }
-
-                .blog-post .date {
-                              color: #666;
-                              font-size: 0.9em;
-                              margin-bottom: 15px;
-                }
-
-                .blog-post p {
-                              color: #444;
-                              font-size: 1.05em;
-                              margin-bottom: 15px;
-                }
-
-                .podcast-link {
-                              display: inline-block;
-                              background: #000;
-                              color: white;
-                              padding: 12px 25px;
-                              border-radius: 25px;
-                              text-decoration: none;
-                              font-weight: bold;
-                              transition: all 0.3s ease;
-                              box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-                              border: 2px solid #333;
-                }
-
-                .podcast-link:hover {
-                              background: #333;
-                              transform: scale(1.05);
-                              box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-                }
-
-                .emoji {
-                              font-size: 1.5em;
-                              margin-right: 10px;
-                }
-
-                footer {
-                              background: #000;
-                              color: white;
-                              text-align: center;
-                              padding: 20px;
-                              margin-top: 40px;
-                              border-top: 4px solid #fff;
-                }
-
-                .fun-fact {
-                              background: rgba(0, 0, 0, 0.85);
-                              border-radius: 15px;
-                              padding: 20px;
-                              margin: 20px 0;
-                              color: white;
-                              font-weight: bold;
-                              text-align: center;
-                              font-size: 1.1em;
-                              border: 2px solid #fff;
-                }
-            </style>
-  </head>
-  <body>
-        <header>
-                  <h1>&#x1FA7A; Aesculapian Society &#x1F393;</h1>
-                <p class="subtitle">Your Guide to Medical School &amp; Doctor Life!</p>p>
-        </header>
-  
-      <div class="container">
-              <div class="intro-box">
-                          <h2><span class="emoji">&#x1F44B;</span>span> Welcome to My Journey!</h2>
-                          <p>Hi there! I'm an 8th grader with big dreams of becoming a doctor! This blog is where I share everything I'm learning about medical school preparation, what life is like as a doctor, and all the cool things future doctors should know. Join me as I explore this amazing path!</p>
-              </div>div>
-      
-              <div class="fun-fact">
-                          &#x1F31F; Did you know? The word "Aesculapian" comes from Asclepius, the Greek god of medicine! &#x1F31F;
-              </div>div>
-      
-              <div class="blog-post">
-                          <h3><span class="emoji">&#x1F399;&#xFE0F;</span>span> Episode 1: Starting the Journey</h3>
-                          <p class="date">&#x1F4C5; February 2026</p>
-                          <p>Welcome to the very first episode of the Aesculapian Society podcast! In this episode, I talk about why I want to become a doctor and what got me interested in medicine. I also share some of the things I've learned about what it takes to prepare for medical school, even as an 8th grader!</p>
-                          <p><strong>What we cover:</strong></p>
-                          <p>&#x2022; Why medicine is awesome<br>
-                          &#x2022; Things I wish I knew earlier about the medical journey<br>
-                          &#x2022; Tips for staying motivated<br>
-                          &#x2022; Fun science experiments to try at home</p>
-                          <a href="#" class="podcast-link">&#x1F3A7; Listen to Episode 1</a>a>
-              </div>div>
-      
-              <div class="blog-post">
-                          <h3><span class="emoji">&#x1F4DA;</span>span> Study Tips for Future Doctors</h3>
-                          <p class="date">&#x1F4C5; Coming Soon!</p>
-                          <p>Stay tuned for more blog posts where I'll share study techniques, book recommendations, and advice from real doctors! This is just the beginning of an awesome adventure!</p>
-              </div>div>
-      </div>div>
-  
-      <footer>
-                <p>&#x2728; Aesculapian Society - Inspiring Future Medical Professionals &#x2728;</p>
-              <p>Made with &#x1F49C; by an aspiring doctor</p>
-      </footer>
-  </body>
-</html>html></p></p>
-      </footer></strong></p></p></h2></h1>
-        </header>
-  </body>
-      </style></title>
-  </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesculapian Society - Medical School Journey</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Comic Sans MS', 'Arial', sans-serif; background: repeating-linear-gradient(45deg, #ffffff, #ffffff 20px, #000000 20px, #000000 40px); color: #333; line-height: 1.6; min-height: 100vh; }
+        header { background: #000; padding: 30px 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.4); border-bottom: 4px solid #fff; }
+        h1 { color: white; font-size: 3em; text-shadow: 2px 2px 0px #555; margin-bottom: 10px; }
+        .subtitle { color: #ccc; font-size: 1.3em; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        .intro-box { background: rgba(255,255,255,0.95); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); border: 4px solid #000; }
+        .intro-box h2 { color: #000; font-size: 2em; margin-bottom: 15px; }
+        .intro-box p { font-size: 1.1em; color: #333; }
+        .blog-post { background: rgba(255,255,255,0.95); border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.3); border-left: 8px solid #000; transition: transform 0.3s ease; }
+        .blog-post:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(0,0,0,0.4); }
+        .blog-post h3 { color: #000; font-size: 1.8em; margin-bottom: 10px; }
+        .blog-post .date { color: #666; font-size: 0.9em; margin-bottom: 15px; }
+        .blog-post p { color: #444; font-size: 1.05em; margin-bottom: 15px; }
+        .podcast-link { display: inline-block; background: #000; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 2px solid #333; }
+        .podcast-link:hover { background: #333; transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+        footer { background: #000; color: white; text-align: center; padding: 20px; margin-top: 40px; border-top: 4px solid #fff; }
+        .fun-fact { background: rgba(0,0,0,0.85); border-radius: 15px; padding: 20px; margin: 20px 0; color: white; font-weight: bold; text-align: center; font-size: 1.1em; border: 2px solid #fff; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>&#x1FA7A; Aesculapian Society &#x1F393;</h1>
+        <p class="subtitle">Your Guide to Medical School &amp; Doctor Life!</p>
+    </header>
+    <div class="container">
+        <div class="intro-box">
+            <h2>&#x1F44B; Welcome to My Journey!</h2>
+            <p>Hi there! I'm an 8th grader with big dreams of becoming a doctor! This blog is where I share everything I'm learning about medical school preparation, what life is like as a doctor, and all the cool things future doctors should know. Join me as I explore this amazing path!</p>
+        </div>
+        <div class="fun-fact">&#x1F31F; Did you know? The word "Aesculapian" comes from Asclepius, the Greek god of medicine! &#x1F31F;</div>
+        <div class="blog-post">
+            <h3>&#x1F399;&#xFE0F; Episode 1: Starting the Journey</h3>
+            <p class="date">&#x1F4C5; February 2026</p>
+            <p>Welcome to the very first episode of the Aesculapian Society podcast! In this episode, I talk about why I want to become a doctor and what got me interested in medicine. I also share some of the things I've learned about what it takes to prepare for medical school, even as an 8th grader!</p>
+            <p><strong>What we cover:</strong></p>
+            <p>&#x2022; Why medicine is awesome<br>&#x2022; Things I wish I knew earlier about the medical journey<br>&#x2022; Tips for staying motivated<br>&#x2022; Fun science experiments to try at home</p>
+            <a href="#" class="podcast-link">&#x1F3A7; Listen to Episode 1</a>
+        </div>
+        <div class="blog-post">
+            <h3>&#x1F4DA; Study Tips for Future Doctors</h3>
+            <p class="date">&#x1F4C5; Coming Soon!</p>
+            <p>Stay tuned for more blog posts where I'll share study techniques, book recommendations, and advice from real doctors! This is just the beginning of an awesome adventure!</p>
+        </div>
+    </div>
+    <footer>
+        <p>&#x2728; Aesculapian Society - Inspiring Future Medical Professionals &#x2728;</p>
+        <p>Made with &#x1F49C; by an aspiring doctor</p>
+    </footer>
+</body>
+</html>
