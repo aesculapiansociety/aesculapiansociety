@@ -1,106 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Aesculapian Society | Pre-Med Insights &amp; Physician Perspectives</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Georgia','Times New Roman',serif;background:#fff;color:#111;line-height:1.7;}
-a{color:#111;text-decoration:none;}
-a:hover{text-decoration:underline;}
-header{background:#000;color:#fff;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid #333;}
-header h1{font-size:1.6em;font-weight:700;letter-spacing:1px;}
-header nav a{color:#ccc;margin-left:24px;font-size:0.95em;font-family:'Helvetica Neue',Arial,sans-serif;text-transform:uppercase;letter-spacing:0.5px;}
-header nav a:hover{color:#fff;}
-.layout{display:flex;min-height:calc(100vh - 90px);}
-.sidebar{width:280px;min-width:280px;background:#fafafa;border-right:1px solid #ddd;padding:28px 20px;font-family:'Helvetica Neue',Arial,sans-serif;}
-.sidebar h2{font-size:0.8em;text-transform:uppercase;letter-spacing:1.5px;color:#888;margin-bottom:14px;font-weight:600;}
-.search-box{width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;font-family:inherit;margin-bottom:24px;background:#fff;transition:border-color 0.2s;}
-.search-box:focus{outline:none;border-color:#111;}
-.episode-list{list-style:none;}
-.episode-list li{margin-bottom:2px;}
-.episode-list li a{display:block;padding:10px 12px;border-radius:4px;font-size:0.88em;color:#333;transition:background 0.15s;}
-.episode-list li a:hover,.episode-list li a.active{background:#eee;text-decoration:none;color:#000;}
-.episode-list li a .ep-date{display:block;font-size:0.78em;color:#999;margin-top:2px;}
-.main{flex:1;padding:48px 56px;max-width:820px;}
-.intro{margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid #eee;}
-.intro h2{font-size:1.8em;font-weight:700;margin-bottom:16px;color:#000;}
-.intro p{font-size:1.05em;color:#444;max-width:640px;}
-.featured{margin-bottom:48px;}
-.featured-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.75em;text-transform:uppercase;letter-spacing:1.5px;color:#999;margin-bottom:12px;font-weight:600;}
-.featured h3{font-size:1.5em;font-weight:700;margin-bottom:8px;color:#000;}
-.featured .meta{font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.85em;color:#888;margin-bottom:20px;}
-.featured .description{font-size:1.02em;color:#333;margin-bottom:24px;max-width:640px;}
-.featured .description p{margin-bottom:14px;}
-.topics{margin-bottom:24px;}
-.topics h4{font-size:0.95em;font-weight:700;margin-bottom:8px;color:#111;}
-.topics ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;}
-.topics ul li{background:#f2f2f2;border:1px solid #ddd;padding:5px 14px;border-radius:20px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.82em;color:#555;}
-.listen-btn{display:inline-block;background:#000;color:#fff;padding:12px 28px;border-radius:4px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.9em;font-weight:600;letter-spacing:0.3px;transition:background 0.2s;}
-.listen-btn:hover{background:#333;text-decoration:none;}
-footer{background:#000;color:#888;padding:24px 40px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.82em;display:flex;justify-content:space-between;border-top:3px solid #333;}
-footer a{color:#aaa;}
-footer a:hover{color:#fff;}
-@media(max-width:768px){.layout{flex-direction:column;}.sidebar{width:100%;min-width:100%;border-right:none;border-bottom:1px solid #ddd;}.main{padding:32px 20px;}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aesculapian Society | Medical Podcast</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Georgia','Times New Roman',serif;background:#fff;color:#111;line-height:1.6;}
+    a{color:#111;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    /* LAYOUT */
+    .page-wrapper{display:flex;min-height:100vh;}
+
+    /* LEFT SIDEBAR */
+    .sidebar{width:160px;min-width:160px;background:#000;color:#fff;padding:24px 20px;display:flex;flex-direction:column;gap:8px;position:fixed;top:0;left:0;height:100vh;z-index:10;}
+    .sidebar nav a{display:block;color:#fff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.78em;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:6px 0;text-decoration:none;}
+    .sidebar nav a:hover{text-decoration:underline;}
+    .sidebar .search-wrap{margin-top:16px;}
+    .sidebar .search-wrap input{width:calc(100% - 30px);padding:5px 8px;font-size:0.8em;border:1px solid #555;background:#111;color:#fff;outline:none;display:inline-block;vertical-align:middle;}
+    .sidebar .search-wrap input::placeholder{color:#888;}
+    .sidebar .search-wrap button{width:26px;height:26px;background:#333;border:1px solid #555;color:#fff;cursor:pointer;font-size:0.8em;vertical-align:middle;display:inline-block;}
+
+    /* MAIN AREA */
+    .main-area{margin-left:160px;flex:1;}
+
+    /* HEADER */
+    .header{background:#000;color:#fff;padding:28px 40px;display:flex;align-items:center;justify-content:space-between;}
+    .header h1{font-family:'Helvetica Neue',Arial,sans-serif;font-size:2.2em;font-weight:900;letter-spacing:2px;text-transform:uppercase;}
+    .header .logo-icon{display:flex;align-items:center;gap:6px;font-family:'Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:0.9em;}
+    .header .logo-icon svg{width:40px;height:40px;}
+
+    /* EPISODE GRID */
+    .episode-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:32px 40px;}
+    .episode-card{background:#fff;overflow:hidden;}
+    .episode-card .card-img{width:100%;aspect-ratio:1/1;background:#333;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+    .episode-card .card-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);}
+    .episode-card .card-body{padding:16px 4px;}
+    .episode-card .card-title{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1.1em;font-weight:900;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;line-height:1.2;}
+    .episode-card .card-date{font-size:0.85em;color:#555;}
+
+    /* HOST SECTION */
+    .host-section{padding:32px 40px;}
+    .host-section h2{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1.4em;font-weight:900;text-transform:uppercase;margin-bottom:16px;}
+    .host-card{background:#111;color:#fff;display:flex;align-items:center;gap:0;overflow:hidden;border-radius:0;}
+    .host-card .host-info{padding:32px;flex:1;}
+    .host-card .host-info .host-label{font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.75em;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#aaa;margin-bottom:4px;}
+    .host-card .host-info .host-name{font-family:'Helvetica Neue',Arial,sans-serif;font-size:1.1em;font-weight:700;margin-bottom:12px;}
+    .host-card .host-info .host-bio{font-size:0.88em;color:#ccc;line-height:1.6;}
+    .host-card .host-img{width:280px;min-height:240px;background:#222;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+    .host-card .host-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);}
+
+    /* FOOTER */
+    .footer{background:#000;color:#888;text-align:center;padding:20px;font-size:0.8em;font-family:'Helvetica Neue',Arial,sans-serif;margin-top:40px;}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .sidebar{width:100%;height:auto;position:relative;flex-direction:row;flex-wrap:wrap;padding:12px 16px;gap:4px;}
+      .sidebar nav{display:flex;gap:12px;flex-wrap:wrap;}
+      .sidebar .search-wrap{width:100%;margin-top:8px;}
+      .main-area{margin-left:0;}
+      .episode-grid{grid-template-columns:1fr;padding:16px;}
+      .header{padding:20px 16px;}
+      .header h1{font-size:1.4em;}
+      .host-section{padding:16px;}
+      .host-card{flex-direction:column-reverse;}
+      .host-card .host-img{width:100%;min-height:200px;}
+    }
+
+    /* Placeholder for episodes without images */
+    .placeholder-img{width:100%;height:100%;background:linear-gradient(135deg,#333 0%,#555 50%,#333 100%);display:flex;align-items:center;justify-content:center;color:#888;font-family:'Helvetica Neue',Arial,sans-serif;font-size:0.9em;text-transform:uppercase;letter-spacing:1px;}
+  </style>
 </head>
 <body>
-<header>
-<h1>The Aesculapian Society</h1>
-<nav>
-<a href="#">Home</a>
-<a href="#">Episodes</a>
-<a href="#">About</a>
-<a href="#">Contact</a>
-</nav>
-</header>
-<div class="layout">
-<aside class="sidebar">
-<h2>Search Episodes</h2>
-<input type="text" class="search-box" placeholder="Search by title, topic, or date..." id="searchBox" onkeyup="filterEpisodes()">
-<h2>All Episodes</h2>
-<ul class="episode-list" id="episodeList">
-<li><a href="#ep1" class="active" data-title="The Beginning: Why Medicine?" data-topics="motivation pre-med inspiration" data-date="February 2026"><strong>Ep 1</strong> &#8212; The Beginning: Why Medicine?<span class="ep-date">February 2026</span></a></li>
-<li><a href="#" data-title="What Doctors Wish They Knew" data-topics="advice medical school residency" data-date="Coming Soon"><strong>Ep 2</strong> &#8212; What Doctors Wish They Knew<span class="ep-date">Coming Soon</span></a></li>
-<li><a href="#" data-title="Building Academic Foundations" data-topics="study tips grades science coursework" data-date="Coming Soon"><strong>Ep 3</strong> &#8212; Building Academic Foundations<span class="ep-date">Coming Soon</span></a></li>
-<li><a href="#" data-title="The Reality of Medical School" data-topics="medical school curriculum lifestyle" data-date="Coming Soon"><strong>Ep 4</strong> &#8212; The Reality of Medical School<span class="ep-date">Coming Soon</span></a></li>
-<li><a href="#" data-title="Physician Lifestyles Across Specialties" data-topics="specialties career dermatology surgery" data-date="Coming Soon"><strong>Ep 5</strong> &#8212; Physician Lifestyles Across Specialties<span class="ep-date">Coming Soon</span></a></li>
-</ul>
-</aside>
-<main class="main">
-<section class="intro">
-<h2>Welcome</h2>
-<p>I am the founder of The Aesculapian Society, a podcast and editorial platform dedicated to exploring the realities of medical education and physician life. As a student with a deep interest in medicine, I created this project to bridge the gap between aspiration and understanding&#8212;offering honest, well-researched perspectives on what it truly takes to pursue a career in healthcare. Each episode draws on interviews, published literature, and firsthand accounts to provide substantive insight for anyone considering the medical profession.</p>
-</section>
-<section class="featured" id="ep1">
-<p class="featured-label">Latest Episode</p>
-<h3>Episode 1: The Beginning &#8212; Why Medicine?</h3>
-<p class="meta">Published February 2026 &#8226; 32 min</p>
-<div class="description">
-<p>In the inaugural episode of The Aesculapian Society, we examine the motivations that draw individuals toward a career in medicine. From early childhood curiosity to pivotal life experiences, we explore the diverse pathways that lead aspiring physicians to commit to one of the most demanding and rewarding professions in the world.</p>
-<p>We also discuss the importance of early preparation, the academic and extracurricular benchmarks that admissions committees look for, and how to begin building a meaningful foundation&#8212;regardless of where you are in your educational journey.</p>
-</div>
-<div class="topics">
-<h4>Topics Covered</h4>
-<ul>
-<li>Motivation &amp; calling</li>
-<li>Pre-med preparation</li>
-<li>Academic benchmarks</li>
-<li>Extracurricular strategy</li>
-<li>Early clinical exposure</li>
-</ul>
-</div>
-<a href="#" class="listen-btn">Listen to Episode 1 &#8594;</a>
-</section>
-</main>
-</div>
-<footer>
-<span>&#169; 2026 The Aesculapian Society. All rights reserved.</span>
-<span><a href="#">Privacy Policy</a> &#8226; <a href="#">Terms</a></span>
-</footer>
-<script>
-function filterEpisodes(){var q=document.getElementById('searchBox').value.toLowerCase();var items=document.querySelectorAll('#episodeList li');items.forEach(function(item){var a=item.querySelector('a');var text=(a.getAttribute('data-title')+' '+a.getAttribute('data-topics')+' '+a.getAttribute('data-date')+' '+a.textContent).toLowerCase();item.style.display=text.includes(q)?'':'none';});}
-</script>
+  <div class="page-wrapper">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">All Episodes</a>
+        <a href="#">Guests</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="search-wrap">
+        <input type="text" placeholder="Search..." id="searchInput">
+        <button onclick="searchEpisodes()">&#128269;</button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-area">
+      <!-- HEADER -->
+      <div class="header">
+        <h1>Aesculapian Society</h1>
+        <div class="logo-icon">
+          <span>staff</span>
+          <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="30" y1="5" x2="30" y2="55" stroke="white" stroke-width="2.5"/>
+            <circle cx="30" cy="8" r="4" fill="none" stroke="white" stroke-width="1.5"/>
+            <path d="M22 20 C22 16, 30 12, 30 20 C30 28, 22 24, 22 20Z" fill="none" stroke="white" stroke-width="1.5"/>
+            <path d="M38 28 C38 24, 30 20, 30 28 C30 36, 38 32, 38 28Z" fill="none" stroke="white" stroke-width="1.5"/>
+            <line x1="22" y1="52" x2="30" y2="55" stroke="white" stroke-width="1.5"/>
+            <line x1="38" y1="52" x2="30" y2="55" stroke="white" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- EPISODE GRID -->
+      <div class="episode-grid" id="episodeGrid">
+        <div class="episode-card" data-title="The Beginning: Why Medicine?" data-date="Feb 15, 2026">
+          <div class="card-img"><div class="placeholder-img">Episode 1</div></div>
+          <div class="card-body">
+            <div class="card-title">The Beginning: Why Medicine?</div>
+            <div class="card-date">Feb 15, 2026</div>
+          </div>
+        </div>
+
+        <div class="episode-card" data-title="Day in the Life of a Pre-Med Student" data-date="Coming Soon">
+          <div class="card-img"><div class="placeholder-img">Episode 2</div></div>
+          <div class="card-body">
+            <div class="card-title">Day in the Life of a Pre-Med Student</div>
+            <div class="card-date">Coming Soon</div>
+          </div>
+        </div>
+
+        <div class="episode-card" data-title="What Doctors Wish They Knew Before Med School" data-date="Coming Soon">
+          <div class="card-img"><div class="placeholder-img">Episode 3</div></div>
+          <div class="card-body">
+            <div class="card-title">What Doctors Wish They Knew Before Med School</div>
+            <div class="card-date">Coming Soon</div>
+          </div>
+        </div>
+
+        <div class="episode-card" data-title="Aesculapian Society" data-date="Coming Soon">
+          <div class="card-img"><div class="placeholder-img">Episode 4</div></div>
+          <div class="card-body">
+            <div class="card-title">Aesculapian Society</div>
+            <div class="card-date">Coming Soon</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOST SECTION -->
+      <div class="host-section">
+        <h2>Host</h2>
+        <div class="host-card">
+          <div class="host-info">
+            <div class="host-label">Host</div>
+            <div class="host-name">Aesculapian Society</div>
+            <div class="host-bio">Aesculapian Society is a podcast dedicated to exploring the journey toward medicine. Hosted by an ambitious 8th grader with a passion for science, each episode dives into medical school preparation, physician lifestyles, and the realities of pursuing a career in healthcare.</div>
+          </div>
+          <div class="host-img"><div class="placeholder-img" style="color:#666;font-size:0.8em;">Host Photo</div></div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="footer">
+        &copy; 2026 Aesculapian Society. All rights reserved.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function searchEpisodes(){
+      var query = document.getElementById('searchInput').value.toLowerCase();
+      var cards = document.querySelectorAll('.episode-card');
+      cards.forEach(function(card){
+        var title = (card.getAttribute('data-title') || '').toLowerCase();
+        var date = (card.getAttribute('data-date') || '').toLowerCase();
+        if(title.indexOf(query) !== -1 || date.indexOf(query) !== -1){
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    document.getElementById('searchInput').addEventListener('keyup', searchEpisodes);
+  </script>
 </body>
 </html>
